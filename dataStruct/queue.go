@@ -1,5 +1,6 @@
 package dataStruct
 
+// using LinkedList
 type Queue struct {
 	li *LinkedList
 }
