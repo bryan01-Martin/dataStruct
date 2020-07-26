@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// LinkedList
 	list := &dataStruct.LinkedList{}
 	list.AddNode(0)
 	for i := 1; i < 10; i++ {
@@ -28,6 +29,7 @@ func main() {
 	list.PrintReverse()
 	fmt.Printf("tail : %d\n", list.Tail.Val)
 
+	// Stack using Slice
 	stack := []int{}
 
 	for i := 1; i < 10; i++ {
@@ -40,7 +42,7 @@ func main() {
 		last, stack = stack[len(stack)-1], stack[:len(stack)-1]
 		fmt.Println(last)
 	}
-
+	// Queue using Slice
 	queue := []int{}
 
 	for i := 1; i < 5; i++ {
@@ -52,7 +54,7 @@ func main() {
 		front, queue = queue[0], queue[1:]
 		fmt.Println(front)
 	}
-
+	// Stack using LinkedList
 	stack2 := dataStruct.NewStack()
 
 	for i := 1; i <= 5; i++ {
@@ -64,8 +66,8 @@ func main() {
 		val := stack2.Pop()
 		fmt.Printf("%d -> ", val)
 	}
-	fmt.Println("")
-
+	fmt.Println()
+	// Queue using LinkedList
 	queue2 := dataStruct.NewQueue()
 
 	for i := 1; i <= 5; i++ {
@@ -77,6 +79,35 @@ func main() {
 		val := queue2.Pop()
 		fmt.Printf("%d -> ", val)
 	}
-	fmt.Println("")
+	fmt.Println()
 
+	// Tree 순회
+	fmt.Println("TREE")
+	tree := dataStruct.Tree{}
+	val := 1
+
+	tree.AddNode(val)
+	val++
+
+	for i := 0; i < 3; i++ {
+		tree.Root.AddNode(val)
+		val++
+	}
+
+	for i := 0; i < len(tree.Root.Childs); i++ {
+		for j := 0; j < 2; j++ {
+			tree.Root.Childs[i].AddNode(val)
+			val++
+		}
+	}
+	fmt.Println("TREE DFS USING RECURSIVE")
+	tree.DFSUsingRecursive()
+	fmt.Println()
+	fmt.Println("TREE DFS USING STACK")
+	tree.DFSUsingStack()
+	fmt.Println()
+
+	fmt.Println("TREE BFS USING QUEUE")
+	tree.BFSUsingQueue()
+	fmt.Println()
 }
