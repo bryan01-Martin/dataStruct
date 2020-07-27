@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	// LinkedList
 	list := &dataStruct.LinkedList{}
 	list.AddNode(0)
@@ -107,6 +108,9 @@ func main() {
 	tree.DFSUsingStack()
 	fmt.Println()
 
+	fmt.Println("TREE BFS USING QUEUE")
+	tree.BFSUsingQueue()
+	fmt.Println()
 	fmt.Println("TREE BFS USING QUEUE")
 	tree.BFSUsingQueue()
 	fmt.Println()
